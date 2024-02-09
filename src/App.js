@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { Search } from './Search';
+import { PokemonDetail } from './PokemonDetail';
+import { Pokedex } from './Pokedex';
 import './App.css';
 
-function App() {
+export function App() {
+  const [pokemon, setPokemon] = useState(null);
+  const [capturedPokemons, setCapturedPokemons] = useState([]);
+
+  const fetchPokemon = query => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
+      .then(response => response.json())
+      .then(data => setPokemon(data))
+      .catch(error => console.error('Error:', error));
+  };
+
+  const capturePokemon = pokemon => {
+    if (!capturedPokemons.find(p => p.name === pokemon.name)) {
+      setCapturedPokemons(prev => [...prev, pokemon]);
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search onSearch={fetchPokemon} />
+      {pokemon && <PokemonDetail pokemon={pokemon} onCapture={capturePokemon} />}
+      <Pokedex capturedPokemons={capturedPokemons} />
     </div>
   );
 }
-
-export default App;

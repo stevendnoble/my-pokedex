@@ -1,8 +1,25 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.App-header {
+  background-color: #ffcb05; /* Pikachu yellow */
+  color: #3b4cca; /* Pokédex blue */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -36,3 +53,79 @@
     transform: rotate(360deg);
   }
 }
+*/
+
+
+
+.pokemon-info {
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  color: #dc0a2d; /* Pokéball red */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-text {
+  color: #777;
+}
+
+.btn {
+  background-color: #dc0a2d; /* Pokéball red */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #a3081e;
+}
+
+.btn:active {
+  background-color: #750614;
+}
+
+.btn-primary {
+  background-color: #3b4cca; /* Pokédex blue */
+}
+
+.btn-primary:hover {
+  background-color: #2a3a8b;
+}
+
+.btn-danger {
+  background-color: #dc0a2d; /* Pokéball red */
+}
+
+.input-group {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.view-box-btn {
+  margin-top: 20px;
+}
+
+/* Add any additional styles for specific components as needed */
